@@ -1,0 +1,32 @@
+body, #out {
+  margin: 0;
+}
+dialog {
+  padding: 10px;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+#torch, #scan_btn, #a2hs {
+  border: none;
+  font-size: x-large;
+  font-weight: 900;
+  height: 100px;
+  left: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+#torch {
+  background-color: yellow;
+  bottom: 100px;
+}
+#scan_btn {
+  background-color: cornflowerblue;
+  bottom: 0;
+}
+#a2hs {
+  background-color: cadetblue;
+  height: 50px;
+  top: 0;
+}

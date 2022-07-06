@@ -1,0 +1,49 @@
+{
+  "name": "Phoenix",
+  "short_name": "Phoenix",
+  "description": "Inventory scanner for Fast Break, LLC",
+  "start_url": ".",
+  "theme_color" :"#fff",
+  "background_color": "#000",
+  "display": "fullscreen",
+  "scope": "/",
+  "categories": ["business", "utilities"],
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "permissions": [
+    "camera"
+  ]
+}
