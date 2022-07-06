@@ -1,5 +1,5 @@
 const APP_PREFIX = "phoenix",
-      APP_VERSION = "v0001",
+      APP_VERSION = "v0002",
       CACHE_NAME = `${APP_PREFIX}_${APP_VERSION}`;
 
 let APP_URLS = [
@@ -8,23 +8,23 @@ let APP_URLS = [
   "/credits.html",
   "/app.js",
   "/app.css",
-  "/favicon.ico",
-  "/favicon-16x16.png",
-  "/favicon-32x32.png",
-  "/android-chrome-192x192.png",
-  "/android-chrome-512x512.png",
-  "/favicon.svg"
+  "/images/favicon.ico",
+  "/images/favicon-16x16.png",
+  "/images/favicon-32x32.png",
+  "/images/android-chrome-192x192.png",
+  "/images/android-chrome-512x512.png",
+  "/images/favicon.svg"
 ];
 
 let _platform = navigator.platform
 if (_platform.startsWith("Win")) {
   APP_URLS.push("/browserconfig.xml");
-  APP_URLS.push("/mstile-150x150.png");
+  APP_URLS.push("images/mstile-150x150.png");
 }
 
 if (_platform === "iPhone" || _platform === "iPad") {
-  APP_URLS.push("/apple-touch-icon-precomposed.png");
-  APP_URLS.push("/apple-touch-icon.png");
+  APP_URLS.push("images/apple-touch-icon-precomposed.png");
+  APP_URLS.push("images/apple-touch-icon.png");
 }
 _platform = null;
 
