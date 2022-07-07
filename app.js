@@ -5,7 +5,7 @@
   }
 
   // Register the Service Worker, if able
-  navigator.serviceWorker.register("sw.js", { scope: "/" })
+  navigator.serviceWorker.register("sw.js", { scope: "/phoenix/" })
   .then(idk => {
     console.log(idk);
   })
