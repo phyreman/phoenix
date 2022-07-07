@@ -7,7 +7,7 @@ let APP_URLS = [
   "/phoenix/index.html",
   "/phoenix/credits.html",
   "/phoenix/app.js",
-  "/phoenix/app.css",
+  "/phoenix/css/app.css",
   "/phoenix/images/favicon.ico",
   "/phoenix/images/favicon-16x16.png",
   "/phoenix/images/favicon-32x32.png",
