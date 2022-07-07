@@ -6,38 +6,38 @@
   "theme_color" :"#fff",
   "background_color": "#000",
   "display": "fullscreen",
-  "scope": "/",
+  "scope": "/phoenix/",
   "categories": ["business", "utilities"],
   "icons": [
     {
-      "src": "images/android-chrome-192x192.png",
+      "src": "/phoenix/images/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/android-chrome-192x192.png",
+      "src": "/phoenix/images/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "images/android-chrome-512x512.png",
+      "src": "/phoenix/images/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "images/android-chrome-512x512.png",
+      "src": "/phoenix/images/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "images/favicon.svg",
+      "src": "/phoenix/images/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     },
     {
-      "src": "images/favicon.svg",
+      "src": "/phoenix/images/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
