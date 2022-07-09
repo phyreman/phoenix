@@ -1,10 +1,8 @@
-const //APP_PATH = location.pathname,
-      APP_PREFIX = "phoenix",
-      APP_VERSION = "v0005",
+const APP_PREFIX = "phoenix",
+      APP_VERSION = "v0007",
       CACHE_NAME = `${APP_PREFIX}_${APP_VERSION}`;
 
 let APP_URLS = [
-  //`${APP_PATH}`,
   location.pathname,
   "index.html",
   "credits.html",
@@ -16,29 +14,15 @@ let APP_URLS = [
   "images/android-chrome-192x192.png",
   "images/android-chrome-512x512.png",
   "images/favicon.svg"
-  /*`${APP_PATH}index.html`,
-  `${APP_PATH}credits.html`,
-  `${APP_PATH}app.js`,
-  `${APP_PATH}css/app.css`,
-  `${APP_PATH}images/favicon.ico`,
-  `${APP_PATH}images/favicon-16x16.png`,
-  `${APP_PATH}images/favicon-32x32.png`,
-  `${APP_PATH}images/android-chrome-192x192.png`,
-  `${APP_PATH}images/android-chrome-512x512.png`,
-  `${APP_PATH}images/favicon.svg`*/
 ];
 
 let _platform = navigator.platform;
 if (_platform.startsWith("Win")) {
-  /*APP_URLS.push(`${APP_PATH}browserconfig.xml`);
-  APP_URLS.push(`${APP_PATH}images/mstile-150x150.png`);*/
   APP_URLS.push("browserconfig.xml");
   APP_URLS.push("images/mstile-150x150.png");
 }
 
 if (_platform === "iPhone" || _platform === "iPad") {
-  /*APP_URLS.push(`${APP_PATH}images/apple-touch-icon-precomposed.png`);
-  APP_URLS.push(`${APP_PATH}images/apple-touch-icon.png`);*/
   APP_URLS.push("images/apple-touch-icon-precomposed.png");
   APP_URLS.push("images/apple-touch-icon.png");
 }

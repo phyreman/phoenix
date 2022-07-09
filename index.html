@@ -2,11 +2,15 @@
 <html lang="en">
 	<head>
 		<title>Phoenix</title>
-		<base href="https://phyreman.github.io/phoenix/">
+		<!-- <base href="https://phyreman.github.io/phoenix/"> -->
 		<meta charset="utf-8">
 		<meta rel="canonical" href="https://phyreman.github.io/phoenix/">
 		<meta name="description" content="Inventory scanner for Fast Break, LLC">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-title" content="Phoenix">
+		<meta name="application-name" content="Phoenix">
+		<meta name="msapplication-TileColor" content="#603cba">
+		<meta name="theme-color" content="#fff">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" sizes="any" href="images/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -14,23 +18,104 @@
 		<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 		<link rel="manifest" href="manifest.json">
 		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
-		<meta name="apple-mobile-web-app-title" content="Phoenix">
-		<meta name="application-name" content="Phoenix">
-		<meta name="msapplication-TileColor" content="#603cba">
-		<meta name="theme-color" content="#fff">
 		<script defer src="app.js"></script>
 		<link rel="stylesheet" href="css/app.css"></link>
 	</head>
 	<body>
 		<video id="cam"></video>
-		<button id="a2hs" hidden>Add to Home Screen</button>
-		<dialog id="dialog">
+		<button id="settings_btn" onclick="settings_dialog.showModal()"></button>
+		<div id="a2hs" hidden>
+			<div>Add to Home Screen?</div>
+			<button id="accept_btn">Yes, please.</button>
+			<button id="dismiss_btn">No thanks.</button>
+		</div>
+		<dialog id="count_dialog">
 			<h2 id="out"></h2>
+			<p id="total"></p>
 			<form method="dialog">
 				<label for="count">Count:</label>
 				<input type="number" name="count" id="count">
 				<button id="submit" value="default">Enter</button>
 				<button id="cancel" value="cancel">Cancel</button>
+			</form>
+		</dialog>
+		<dialog id="settings_dialog">
+			<h2>Settings</h2>
+			<form method="dialog">
+				<label for="beep_tone">Beep Tone:</label>
+				<select id="beep_tone">
+					<!-- <option value="329.63">E&#x2084;</option>
+					<option value="349.23">F&#x2084;</option>
+					<option value="369.99">F&sharp;&#x2084; / G&flat;&#x2084;</option>
+					<option value="392">G&#x2084;</option>
+					<option value="415.3">G&sharp;&#x2084; / A&flat;&#x2084;</option>
+					<option value="440">A&#x2084;</option>
+					<option value="466.16">A&sharp;&#x2084; / B&flat;&#x2084;</option>
+					<option value="493.88">B&#x2084;</option>
+					<option value="523.25">C&#x2085;</option>
+					<option value="554.37">C&sharp;&#x2085; / D&flat;&#x2085;</option>
+					<option value="587.33">D&#x2085;</option>
+					<option value="622.25">D&sharp;&#x2085; / E&flat;&#x2085;</option>
+					<option value="659.25">E&#x2085;</option>
+					<option value="698.46">F&#x2085;</option>
+					<option value="739.99">F&sharp;&#x2085; / G&flat;&#x2085;</option>
+					<option value="783.99">G&#x2085;</option>
+					<option value="830.61">G&sharp;&#x2085; / A&flat;&#x2085;</option>
+					<option value="880">A&#x2085;</option>
+					<option value="932.33">A&sharp;&#x2085; / B&flat;&#x2085;</option>
+					<option value="987.77">B&#x2085;</option>
+					<option value="1046.5" selected>C&#x2086;</option>
+					<option value="1108.73">C&sharp;&#x2086; / D&flat;&#x2086;</option>
+					<option value="1174.66">D&#x2086;</option>
+					<option value="1244.51">D&sharp;&#x2086; / E&flat;&#x2086;</option>
+					<option value="1318.51">E&#x2086;</option>
+					<option value="1396.91">F&#x2086;</option> -->
+					<option value="323.63">E&#x2084;</option>
+					<option value="342.88">F&#x2084;</option>
+					<option value="363.27">F&sharp;&#x2084; / G&flat;&#x2084;</option>
+					<option value="384.87">G&#x2084;</option>
+					<option value="407.75">G&sharp;&#x2084; / A&flat;&#x2084;</option>
+					<option value="432">A&#x2084;</option>
+					<option value="457.69">A&sharp;&#x2084; / B&flat;&#x2084;</option>
+					<option value="484.9">B&#x2084;</option>
+					<option value="513.74">C&#x2085;</option>
+					<option value="544.29">C&sharp;&#x2085; / D&flat;&#x2085;</option>
+					<option value="576.65">D&#x2085;</option>
+					<option value="610.94">D&sharp;&#x2085; / E&flat;&#x2085;</option>
+					<option value="647.27">E&#x2085;</option>
+					<option value="685.76">F&#x2085;</option>
+					<option value="726.53">F&sharp;&#x2085; / G&flat;&#x2085;</option>
+					<option value="769.74">G&#x2085;</option>
+					<option value="815.51">G&sharp;&#x2085; / A&flat;&#x2085;</option>
+					<option value="864">A&#x2085;</option>
+					<option value="915.38">A&sharp;&#x2085; / B&flat;&#x2085;</option>
+					<option value="969.81">B&#x2085;</option>
+					<option value="1027.47" selected>C&#x2086;</option>
+					<option value="1088.57">C&sharp;&#x2086; / D&flat;&#x2086;</option>
+					<option value="1153.3">D&#x2086;</option>
+					<option value="1221.88">D&sharp;&#x2086; / E&flat;&#x2086;</option>
+					<option value="1294.54">E&#x2086;</option>
+					<option value="1371.51">F&#x2086;</option>
+				</select>
+				<label for="beep_time">Beep Length:</label>
+				<input type="number" value="150" min="50" max="300" step="5" id="beep_time">
+				<label for="beep_vol">Beep Volume:</label>
+				<input type="range" value="50" min="0" max="100" step="5" id="beep_vol" list="tickmarks">
+				<datalist id="tickmarks">
+					<option value="0" label="0%"></option>
+					<option value="10"></option>
+					<option value="20"></option>
+					<option value="30"></option>
+					<option value="40"></option>
+					<option value="50" label="50%"></option>
+					<option value="60"></option>
+					<option value="70"></option>
+					<option value="80"></option>
+					<option value="90"></option>
+					<option value="100" label="100%"></option>
+				</datalist>
+				<button id="save" value="default">Save</button>
+				<button id="discard" value="cancel">Cancel</button>
 			</form>
 		</dialog>
 		<button id="torch" disabled>Light On</button>

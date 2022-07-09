@@ -1,39 +1,39 @@
 (function(){
   if (!window.BarcodeDetector) {
-    alert("BarcodeDetector API not found");
+    //alert("BarcodeDetector API not found");
     return;
   }
 
   // Register the Service Worker, if able
-  navigator.serviceWorker.register("sw.js", { scope: location.pathname })
-  .catch(err => {
-    console.error(err);
-  });
+  navigator.serviceWorker.register("sw.js", { scope: location.pathname }).catch(err => console.error(err));
 
   // Prepare for install prompt
-  let deferredPrompt;
-  window.addEventListener("beforeinstallprompt", e => {
-    e.preventDefault();
-    deferredPrompt = e;
-    a2hs.hidden = false;
-    console.log("Preparing prompt");
-    a2hs.addEventListener("click", event => {
-      a2hs.hidden = true;
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(choiceResult => {
-        if (choiceResult.outcome === "accepted") {
-          console.log("User accepted A2HS prompt");
-        } else {
-          console.log("User denied A2HS prompt");
-        }
-        deferredPrompt = null;
+  if (localStorage.a2hs === undefined) {
+    let deferredPrompt;
+    window.addEventListener("beforeinstallprompt", e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      a2hs.hidden = false;
+
+      // Pop up install prompt if accepted
+      accept_btn.addEventListener("click", event => {
+        a2hs.hidden = true;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(choiceResult => {
+          if (choiceResult.outcome === "accepted") {
+            localStorage.a2hs = true;
+            return;
+          }
+          localStorage.a2hs = false;
+          deferredPrompt = null;
+        });
+      });
+      // Hide install banner, and stop asking
+      dismiss_btn.addEventListener("click", event => {
+        a2hs.hidden = true;
+        localStorage.a2hs = false;
       });
     });
-  });
-
-  if (!window.BarcodeDetector) {
-    alert("BarcodeDetector API not found");
-    return;
   }
 
   // Set variables
@@ -96,8 +96,8 @@
     scan();
   });
 
-  dialog.addEventListener("close", event => {
-    if (dialog.returnValue === "default") {
+  count_dialog.addEventListener("close", function(event) {
+    if (this.returnValue === "default") {
       // Form was submitted
       const upc = out.textContent;
       if (!inventory.hasOwnProperty(upc)) inventory[upc] = 0;
@@ -107,6 +107,18 @@
     cam.play();
     count.value = "";
   });
+
+  settings_dialog.addEventListener("close", function(event) {
+    if (this.returnValue === "cancel") return;
+    localStorage.beep_tone = beep_tone.value;
+    localStorage.beep_time = beep_time.valueAsNumber / 1000;
+    localStorage.beep_vol = beep_vol.valueAsNumber / 100;
+  });
+
+  // Play the beep tone whenever they change the settings for it
+  beep_tone.onchange = beep;
+  beep_time.onchange = beep;
+  beep_vol.onchange = beep;
 
   function scan() {
     // Detect barcodes
@@ -225,8 +237,9 @@
 
   function getCount(msg) {
     out.textContent = msg;
+    total.textContent = inventory[msg];
     cam.pause();
-    dialog.showModal();
+    count_dialog.showModal();
   }
 
   // Play a beep noise
@@ -239,20 +252,21 @@
     osc.connect(gainNode);
     gainNode.connect(ctx.destination);
 
-    // Start volume at 50%
-    //gainNode.gain.value = 0.5;
+    // Set volume
+    gainNode.gain.value = localStorage.beep_vol || (beep_vol.valueAsNumber / 100);
 
-    // 1046.5 = C6 - Note 'C' at 6th Octave as a square wave
+    // Set wave type and frequency
     osc.type = "square";
-    osc.frequency.value = 1046.5;
+    osc.frequency.value = localStorage.beep_tone || beep_tone.value;
 
-    osc.onended = function() {
+    // Disconnect audio nodes when finished playing
+    osc.onended = () => {
       osc.disconnect();
       gainNode.disconnect();
     };
 
-    // Beep for ~125ms
+    // Play sound
     osc.start();
-    osc.stop(0.125);
+    osc.stop(localStorage.beep_time || (beep_time.valueAsNumber / 1000));
   }
 })();
