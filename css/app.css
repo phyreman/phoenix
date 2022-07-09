@@ -7,6 +7,15 @@ dialog {
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
+input {
+  margin: 0;
+}
+select {
+  width: 75px;
+}
+input:not([type="range"]) {
+  width: 42px;
+}
 #torch, #scan_btn, #a2hs {
   border: none;
   font-size: x-large;
@@ -53,4 +62,19 @@ dialog::backdrop {
   right: 10px;
   top: 10px;
   width: 39px;
+}
+#settings_dialog label {
+  display: inline-block;
+  margin-bottom: 5px;
+  width: 95px;
+}
+#credits_link {
+  background-color: silver;
+  border-radius: 5px;
+  color: black;
+  padding: 2px;
+  position: absolute;
+  right: 3px;
+  text-decoration: none;
+  top: 3px;
 }

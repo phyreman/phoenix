@@ -100,7 +100,7 @@
     if (this.returnValue === "default") {
       // Form was submitted
       const upc = out.textContent;
-      if (!inventory.hasOwnProperty(upc)) inventory[upc] = 0;
+      if (inventory[upc] === undefined) inventory[upc] = 0;
       inventory[upc] += Number(count.value);
     }
     scan_btn.disabled = false;
@@ -109,7 +109,13 @@
   });
 
   settings_dialog.addEventListener("close", function(event) {
-    if (this.returnValue === "cancel") return;
+    const rval = this.returnValue;
+    if (rval === "cancel") return;
+    if (rval === "export") {
+      //TODO Export data to a file
+      //TODO Add saveAs() to project
+      return;
+    }
     localStorage.beep_tone = beep_tone.value;
     localStorage.beep_time = beep_time.valueAsNumber / 1000;
     localStorage.beep_vol = beep_vol.valueAsNumber / 100;
