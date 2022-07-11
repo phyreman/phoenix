@@ -68,6 +68,7 @@ input:not([type="range"]) {
   width: 95px;
 }
 #settings_dialog ul {
+  list-style: none;
   margin: 0;
   padding: 0;
 }
