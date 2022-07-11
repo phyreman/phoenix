@@ -29,35 +29,6 @@
     refreshingPage = true;
   });
 
-  // Prepare for install prompt
-  /*if (localStorage.a2hs === undefined) {
-    let deferredPrompt;
-    window.addEventListener("beforeinstallprompt", e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      a2hs.hidden = false;
-
-      // Pop up install prompt if accepted
-      accept_btn.addEventListener("click", event => {
-        a2hs.hidden = true;
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(choiceResult => {
-          if (choiceResult.outcome === "accepted") {
-            localStorage.a2hs = true;
-            return;
-          }
-          localStorage.a2hs = false;
-          deferredPrompt = null;
-        });
-      });
-      // Hide install banner, and stop asking
-      dismiss_btn.addEventListener("click", event => {
-        a2hs.hidden = true;
-        localStorage.a2hs = false;
-      });
-    });
-  }*/
-
   // Set variables
   const height = screen.width,
         width = height * (9 / 16),
@@ -272,9 +243,9 @@
     return `${upca}${checkDigit}`;
   }
 
-  function getCount(msg) {
-    out.textContent = msg;
-    total.textContent = inventory[msg];
+  function getCount(upc) {
+    out.textContent = upc;
+    total.textContent = `Total: ${inventory[upc]}`;
     cam.pause();
     count_dialog.showModal();
   }
