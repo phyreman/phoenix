@@ -5,7 +5,20 @@
   }
 
   // Register the Service Worker, if able
-  navigator.serviceWorker.register("sw.js", { scope: location.pathname }).catch(err => console.error(err));
+  navigator.serviceWorker.register("sw.js", { scope: location.pathname })
+  .then(reg => {
+    reg.addEventListener("updatefound", () => {
+      const installingWorker = reg.installing;
+      installingWorker.addEventListener("statechange", function() {
+        if (this.state !== "installed") return;
+        if (navigator.serviceWorker.controller) {
+          setTimeout(() => location.reload(), 5000);
+          alert("A new version is available, page will automatically update in 5 seconds.");
+        }
+      });
+    });
+  })
+  .catch(err => console.error(err));
 
   // Prepare for install prompt
   if (localStorage.a2hs === undefined) {

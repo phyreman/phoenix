@@ -1,5 +1,5 @@
 const APP_PREFIX = "phoenix",
-      APP_VERSION = "v0009",
+      APP_VERSION = "v0.0.0.10",
       CACHE_NAME = `${APP_PREFIX}_${APP_VERSION}`;
 
 let APP_URLS = [
@@ -54,7 +54,6 @@ self.addEventListener("activate", event => {
   event.waitUntil(caches.keys().then(keys => {
     return Promise.all(keys.map(key => {
       if (key === CACHE_NAME) return;
-      alert(`You have been updated to the latest version: ${APP_VERSION}`);
       return caches.delete(key);
     }));
   }));
