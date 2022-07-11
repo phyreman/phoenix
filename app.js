@@ -245,7 +245,7 @@
 
   function getCount(upc) {
     out.textContent = upc;
-    total.textContent = `Total: ${inventory[upc]}`;
+    total.textContent = `Total: ${inventory[upc] || 0}`;
     cam.pause();
     count_dialog.showModal();
   }

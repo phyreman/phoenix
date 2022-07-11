@@ -1,5 +1,5 @@
 const APP_PREFIX = "phoenix",
-      APP_VERSION = "v0.0.0.14",
+      APP_VERSION = "v0.0.0.15",
       CACHE_NAME = `${APP_PREFIX}_${APP_VERSION}`;
 
 let APP_URLS = [

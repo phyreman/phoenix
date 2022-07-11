@@ -6,7 +6,7 @@
   "start_url": "/phoenix/",
   "theme_color" :"#000",
   "background_color": "#000",
-  "display": "fullscreen",
+  "display": "standalone",
   "categories": ["business", "utilities"],
   "icons": [
     {
