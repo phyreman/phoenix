@@ -10,11 +10,23 @@ dialog::backdrop {
 input {
   margin: 0;
 }
-#beep_tone {
-  width: 85px;
-}
 input:not([type="range"]) {
   width: 42px;
+}
+#update_btn {
+  background-color: cadetblue;
+  border: none;
+  font-size: x-large;
+  font-weight: 600;
+  left: 0;
+  padding: 15px 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+#beep_tone {
+  width: 85px;
 }
 #torch, #scan_btn, #a2hs {
   border: none;

@@ -7,7 +7,7 @@
   // Register the Service Worker, if able; then listen for app updates and prompt to upgrade
   let iSW;
 
-  reload.addEventListener("click", () => iSW.postMessage({ action: "skipWaiting" }));
+  update_btn.addEventListener("click", () => iSW.postMessage({ action: "skipWaiting" }));
 
   navigator.serviceWorker.register("sw.js", { scope: location.pathname })
   .then(reg => {
