@@ -4,24 +4,33 @@
     return;
   }
 
-  // Register the Service Worker, if able
+  // Register the Service Worker, if able; then listen for app updates and prompt to upgrade
+  let iSW;
+
+  reload.addEventListener("click", () => iSW.postMessage({ action: "skipWaiting" }));
+
   navigator.serviceWorker.register("sw.js", { scope: location.pathname })
   .then(reg => {
     reg.addEventListener("updatefound", () => {
-      const installingWorker = reg.installing;
-      installingWorker.addEventListener("statechange", function() {
+      iSW = reg.installing;
+      iSW.addEventListener("statechange", function() {
         if (this.state !== "installed") return;
-        if (navigator.serviceWorker.controller) {
-          setTimeout(() => location.reload(), 5000);
-          alert("A new version is available, page will automatically update in 5 seconds.");
-        }
+        if (navigator.serviceWorker.controller) notify.hidden = false;
       });
     });
   })
   .catch(err => console.error(err));
 
+  // Reload the page after the serviceWorker controller has changed to the latest version
+  let refreshingPage;
+  navigator.serviceWorker.addEventListener("controllerchange", event => {
+    if (refreshingPage) return;
+    location.reload();
+    refreshingPage = true;
+  });
+
   // Prepare for install prompt
-  if (localStorage.a2hs === undefined) {
+  /*if (localStorage.a2hs === undefined) {
     let deferredPrompt;
     window.addEventListener("beforeinstallprompt", e => {
       e.preventDefault();
@@ -47,7 +56,7 @@
         localStorage.a2hs = false;
       });
     });
-  }
+  }*/
 
   // Set variables
   const height = screen.width,

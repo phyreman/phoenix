@@ -1,5 +1,5 @@
 const APP_PREFIX = "phoenix",
-      APP_VERSION = "v0.0.0.11",
+      APP_VERSION = "v0.0.0.13",
       CACHE_NAME = `${APP_PREFIX}_${APP_VERSION}`;
 
 let APP_URLS = [
@@ -57,4 +57,8 @@ self.addEventListener("activate", event => {
       return caches.delete(key);
     }));
   }));
+});
+
+self.addEventListener("message", event => {
+  if (event.data.action === "skipWaiting") self.skipWaiting();
 });
