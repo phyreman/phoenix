@@ -40,60 +40,73 @@
 			</form>
 		</dialog>
 		<dialog id="settings_dialog">
-			<h2>Settings</h2>
 			<a href="credits.html" target="_blank" id="credits_link">Credits</a>
 			<form method="dialog">
-				<label for="beep_tone">Beep Tone:</label>
-				<select id="beep_tone">
-					<option value="323.63">E&#x2084;</option>
-					<option value="342.88">F&#x2084;</option>
-					<option value="363.27">F&sharp;&#x2084; / G&flat;&#x2084;</option>
-					<option value="384.87">G&#x2084;</option>
-					<option value="407.75">G&sharp;&#x2084; / A&flat;&#x2084;</option>
-					<option value="432">A&#x2084;</option>
-					<option value="457.69">A&sharp;&#x2084; / B&flat;&#x2084;</option>
-					<option value="484.9">B&#x2084;</option>
-					<option value="513.74">C&#x2085;</option>
-					<option value="544.29">C&sharp;&#x2085; / D&flat;&#x2085;</option>
-					<option value="576.65">D&#x2085;</option>
-					<option value="610.94">D&sharp;&#x2085; / E&flat;&#x2085;</option>
-					<option value="647.27">E&#x2085;</option>
-					<option value="685.76">F&#x2085;</option>
-					<option value="726.53">F&sharp;&#x2085; / G&flat;&#x2085;</option>
-					<option value="769.74">G&#x2085;</option>
-					<option value="815.51">G&sharp;&#x2085; / A&flat;&#x2085;</option>
-					<option value="864">A&#x2085;</option>
-					<option value="915.38">A&sharp;&#x2085; / B&flat;&#x2085;</option>
-					<option value="969.81">B&#x2085;</option>
-					<option value="1027.47" selected>C&#x2086;</option>
-					<option value="1088.57">C&sharp;&#x2086; / D&flat;&#x2086;</option>
-					<option value="1153.3">D&#x2086;</option>
-					<option value="1221.88">D&sharp;&#x2086; / E&flat;&#x2086;</option>
-					<option value="1294.54">E&#x2086;</option>
-					<option value="1371.51">F&#x2086;</option>
-				</select>
-				<br>
-				<label for="beep_time">Beep Length:</label>
-				<input type="number" value="150" min="50" max="300" step="5" id="beep_time">
-				<br>
-				<label for="beep_vol">Beep Volume:</label>
-				<input type="range" value="50" min="0" max="100" step="5" id="beep_vol" list="tickmarks">
-				<datalist id="tickmarks">
-					<option value="0" label="0%"></option>
-					<option value="10"></option>
-					<option value="20"></option>
-					<option value="30"></option>
-					<option value="40"></option>
-					<option value="50" label="50%"></option>
-					<option value="60"></option>
-					<option value="70"></option>
-					<option value="80"></option>
-					<option value="90"></option>
-					<option value="100" label="100%"></option>
-				</datalist>
-				<br>
-				<button id="save" value="default">Save</button>
-				<button id="discard" value="cancel">Cancel</button>
+				<ul>
+					<li>
+						<label for="beep_tone">Beep Tone:</label>
+						<select id="beep_tone">
+							<option value="323.63">E&#x2084;</option>
+							<option value="342.88">F&#x2084;</option>
+							<option value="363.27">F&sharp;&#x2084; / G&flat;&#x2084;</option>
+							<option value="384.87">G&#x2084;</option>
+							<option value="407.75">G&sharp;&#x2084; / A&flat;&#x2084;</option>
+							<option value="432">A&#x2084;</option>
+							<option value="457.69">A&sharp;&#x2084; / B&flat;&#x2084;</option>
+							<option value="484.9">B&#x2084;</option>
+							<option value="513.74">C&#x2085;</option>
+							<option value="544.29">C&sharp;&#x2085; / D&flat;&#x2085;</option>
+							<option value="576.65">D&#x2085;</option>
+							<option value="610.94">D&sharp;&#x2085; / E&flat;&#x2085;</option>
+							<option value="647.27">E&#x2085;</option>
+							<option value="685.76">F&#x2085;</option>
+							<option value="726.53">F&sharp;&#x2085; / G&flat;&#x2085;</option>
+							<option value="769.74">G&#x2085;</option>
+							<option value="815.51">G&sharp;&#x2085; / A&flat;&#x2085;</option>
+							<option value="864">A&#x2085;</option>
+							<option value="915.38">A&sharp;&#x2085; / B&flat;&#x2085;</option>
+							<option value="969.81">B&#x2085;</option>
+							<option value="1027.47" selected>C&#x2086;</option>
+							<option value="1088.57">C&sharp;&#x2086; / D&flat;&#x2086;</option>
+							<option value="1153.3">D&#x2086;</option>
+							<option value="1221.88">D&sharp;&#x2086; / E&flat;&#x2086;</option>
+							<option value="1294.54">E&#x2086;</option>
+							<option value="1371.51">F&#x2086;</option>
+						</select>
+					</li>
+					<li>
+						<label for="beep_time">Beep Length:</label>
+						<input type="number" value="150" min="50" max="300" step="5" id="beep_time">
+					</li>
+					<li>
+						<label for="beep_vol">Beep Volume:</label>
+						<input type="range" value="50" min="0" max="100" step="5" id="beep_vol" list="tickmarks">
+						<datalist id="tickmarks">
+							<option value="0" label="0%"></option>
+							<option value="10"></option>
+							<option value="20"></option>
+							<option value="30"></option>
+							<option value="40"></option>
+							<option value="50" label="50%"></option>
+							<option value="60"></option>
+							<option value="70"></option>
+							<option value="80"></option>
+							<option value="90"></option>
+							<option value="100" label="100%"></option>
+						</datalist>
+					</li>
+					<hr>
+					<li>
+						<button id="export" value="export">Export</button>
+						<select id="export_type">
+							<option value="csv" selected>CSV</option>
+						</select>
+					</li>
+					<li>
+						<button id="save" value="default">Save</button>
+						<button id="discard" value="cancel">Cancel</button>
+					</li>
+				</ul>
 			</form>
 		</dialog>
 		<button id="torch" disabled>Light On</button>

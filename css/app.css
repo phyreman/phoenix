@@ -10,8 +10,8 @@ dialog::backdrop {
 input {
   margin: 0;
 }
-select {
-  width: 75px;
+#beep_tone {
+  width: 85px;
 }
 input:not([type="range"]) {
   width: 42px;
@@ -65,16 +65,26 @@ input:not([type="range"]) {
 }
 #settings_dialog label {
   display: inline-block;
-  margin-bottom: 5px;
   width: 95px;
 }
+#settings_dialog ul {
+  margin: 0;
+  padding: 0;
+}
+#settings_dialog li:not(:first-of-type) {
+  margin-top: 5px;
+}
+#settings_dialog li > * {
+  font-size: 16px;
+}
 #credits_link {
-  background-color: silver;
+  background-color: darkslategray;
   border-radius: 5px;
-  color: black;
+  border: 1px solid black;
+  bottom: 3px;
+  color: white;
   padding: 2px;
   position: absolute;
   right: 3px;
   text-decoration: none;
-  top: 3px;
 }
