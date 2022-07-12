@@ -15,7 +15,7 @@
       iSW = reg.installing;
       iSW.addEventListener("statechange", function() {
         if (this.state !== "installed") return;
-        if (navigator.serviceWorker.controller) notify.hidden = false;
+        if (navigator.serviceWorker.controller) update_btn.hidden = false;
       });
     });
   })
