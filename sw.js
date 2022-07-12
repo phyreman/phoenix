@@ -1,6 +1,6 @@
 const APP_PREFIX = "phoenix",
-      APP_VERSION = "v0.0.0.17",
-      CACHE_NAME = `${APP_PREFIX}_${APP_VERSION}`;
+      APP_VERSION = "1.0.0",
+      CACHE_NAME = `${APP_PREFIX}_v${APP_VERSION}`;
 
 let APP_URLS = [
   location.pathname,
