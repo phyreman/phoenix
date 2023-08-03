@@ -1,49 +1,49 @@
 {
-  "name": "Phoenix",
-  "short_name": "Phoenix",
-  "description": "Inventory scanner for Fast Break, LLC",
-  "scope": "/phoenix/",
-  "start_url": "/phoenix/",
-  "theme_color" :"#000",
-  "background_color": "#000",
-  "display": "standalone",
-  "categories": ["business", "utilities"],
-  "icons": [
-    {
-      "src": "images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "images/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "images/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "images/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "images/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
-    }
-  ],
-  "permissions": [
-    "camera"
-  ]
+	"name": "Phoenix",
+	"short_name": "Phoenix",
+	"description": "Inventory scanner",
+	"scope": "/phoenix/",
+	"start_url": "/phoenix/",
+	"theme_color" :"#000",
+	"background_color": "#000",
+	"display": "standalone",
+	"categories": ["business", "utilities"],
+	"icons": [
+		{
+			"src": "images/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "images/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "images/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "images/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "images/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "images/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "maskable"
+		}
+	],
+	"permissions": [
+		"camera"
+	]
 }

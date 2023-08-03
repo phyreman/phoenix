@@ -1,83 +1,83 @@
 body, #out {
-  margin: 0;
+	margin: 0;
 }
 dialog {
-  padding: 10px;
+	padding: 10px;
 }
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 }
 input {
-  margin: 0;
+	margin: 0;
 }
 input:not([type="range"]) {
-  width: 42px;
+	width: 42px;
 }
 #update_btn {
-  background-color: cadetblue;
-  border: none;
-  font-size: x-large;
-  font-weight: 600;
-  left: 0;
-  padding: 15px 0;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 100%;
+	background-color: cadetblue;
+	border: none;
+	font-size: x-large;
+	font-weight: 600;
+	left: 0;
+	padding: 15px 0;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
 }
 #beep_tone {
-  width: 85px;
+	width: 85px;
 }
-#torch, #scan_btn, #a2hs {
-  border: none;
-  font-size: x-large;
-  font-weight: 900;
-  height: 100px;
-  left: 0;
-  padding: 0;
-  position: absolute;
-  width: 100%;
+#light, #scan_btn, #a2hs {
+	border: none;
+	font-size: x-large;
+	font-weight: 900;
+	height: 100px;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	width: 100%;
 }
-#torch {
-  background-color: yellow;
-  bottom: 100px;
+#light {
+	background-color: yellow;
+	bottom: 100px;
 }
 #scan_btn {
-  background-color: cornflowerblue;
-  bottom: 0;
+	background-color: cornflowerblue;
+	bottom: 0;
 }
 #settings_btn {
-  background: no-repeat center center url("../images/gear.svg"), lightgray;
-  border-radius: 10px;
-  height: 39px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 39px;
+	background: no-repeat center center url("../images/gear.svg"), lightgray;
+	border-radius: 10px;
+	height: 39px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 39px;
 }
 #settings_dialog label {
-  display: inline-block;
-  width: 95px;
+	display: inline-block;
+	width: 95px;
 }
 #settings_dialog ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 #settings_dialog li:not(:first-of-type) {
-  margin-top: 5px;
+	margin-top: 5px;
 }
 #settings_dialog li > * {
-  font-size: 16px;
+	font-size: 16px;
 }
 #credits_link {
-  background-color: darkslategray;
-  border-radius: 5px;
-  border: 1px solid black;
-  bottom: 3px;
-  color: white;
-  padding: 2px;
-  position: absolute;
-  right: 3px;
-  text-decoration: none;
+	background-color: darkslategray;
+	border-radius: 5px;
+	border: 1px solid black;
+	bottom: 3px;
+	color: white;
+	padding: 2px;
+	position: absolute;
+	right: 3px;
+	text-decoration: none;
 }
